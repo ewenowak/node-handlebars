@@ -1,0 +1,10 @@
+.dark-layout {
+  background-color: black;
+  color: lightgrey;
+}
+
+h1 {
+    font-weight: lighter;
+    font-style: italic;
+  }
+
