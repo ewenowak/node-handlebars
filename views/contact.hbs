@@ -1,11 +1,44 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Contact</title>
-  </head>
-  <body>
-    <h1>Contact</h1>
-    <p>Send me an email at programmer@example.com</p>
-  </body>
-</html>
+<h2>Contact</h2>
+<div name='isError'>
+	{{#if isError}}
+		You can't leave empty fields
+	{{/if}}
+</div>
+<div name='isSent'>
+	{{#if isSent}}
+		<div class='isSent'>The message has been sent! File
+			{{fileName}}
+			has been saved !
+		</div>
+		<img src='/{{fileName}}' alt={{fileName}} />
+	{{/if}}
+</div>
+<form
+	action='/contact/send-message'
+	method='POST'
+	enctype='multipart/form-data'
+>
+	<label>
+		Your name:
+		<input type='text' name='author' />
+	</label>
+	<label>
+		Your email:
+		<input type='email' name='sender' />
+	</label>
+	<label>
+		Title:
+		<input type='text' name='title' />
+	</label>
+	<label>
+		Project design:
+		<input type='file' name='uploadFile' accept='.png, .jpg, .jpeg .gif' />
+	</label>
+	<label>
+		Message:
+		<textarea name='message'></textarea>
+	</label>
+	
+  <button type='submit'>Send message</button>
+
+</form>
